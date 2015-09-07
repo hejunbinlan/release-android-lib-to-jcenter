@@ -92,6 +92,7 @@ bintray {
         name = libName  //发布到Bintray上的项目名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
+        version = version
         licenses = ["Apache-2.0"]
         publish = true
     }
