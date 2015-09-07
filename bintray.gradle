@@ -1,16 +1,20 @@
 // ./gradlew clean build generateRelease
 apply plugin: 'maven'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
 
 def groupId = project.PUBLISH_GROUP_ID
-def artifactId = project.PUBLISH_ARTIFACT_ID
-def version = project.PUBLISH_VERSION
+def artifactId = project.LIB_NAME
+def lib_version = project.PUBLISH_VERSION
+
 
 configurations {
     optional
     compile.extendsFrom optional
 }
 
-def localReleaseDest = "${buildDir}/release/${version}"
+def localReleaseDest = "${buildDir}/release/${lib_version}"
 
 task androidJavadocs(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
@@ -31,8 +35,8 @@ uploadArchives {
     repositories.mavenDeployer {
         pom.groupId = groupId
         pom.artifactId = artifactId
-        pom.version = version
-        
+        pom.version = lib_version
+
         pom.withXml {
             asNode().dependencies.dependency.findAll { xmlDep ->
                 // mark optional dependencies
@@ -47,7 +51,7 @@ uploadArchives {
                 }
             }
         }
-        
+
         // Add other pom properties here if you want (developer details / licenses)
         repository(url: "file://${localReleaseDest}")
     }
@@ -56,12 +60,12 @@ uploadArchives {
 task zipRelease(type: Zip) {
     from localReleaseDest
     destinationDir buildDir
-    archiveName "release-${version}.zip"
+    archiveName "release-${lib_version}.zip"
 }
 
 task generateRelease << {
-    println "Release ${version} can be found at ${localReleaseDest}/"
-    println "Release ${version} zipped can be found ${buildDir}/release-${version}.zip"
+    println "Release ${lib_version} can be found at ${localReleaseDest}/"
+    println "Release ${lib_version} zipped can be found ${buildDir}/release-${lib_version}.zip"
 }
 
 generateRelease.dependsOn(uploadArchives)
@@ -72,3 +76,26 @@ artifacts {
     archives androidSourcesJar
     archives androidJavadocsJar
 }
+
+// --------------------
+def siteUrl = project.WEBSITE_URL
+def gitUrl = project.VSC_URL
+def libName = project.LIB_NAME
+version = lib_version
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "maven"  //发布到Bintray的那个仓库里，默认账户有四个库，我们这里上传到maven库
+        name = libName  //发布到Bintray上的项目名字
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        licenses = ["Apache-2.0"]
+        publish = true
+    }
+}
+
