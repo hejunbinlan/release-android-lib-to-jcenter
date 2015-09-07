@@ -12,15 +12,16 @@
 > classpath 'com.github.dcendents:android-maven-plugin:1.2'
 
 + 修改Module的build.gradle ，在最后添加：
-> ext {
->	PUBLISH_GROUP_ID = 'org.zarrboogs.devutils'
->	LIB_NAME = 'android-devutils'
->	PUBLISH_VERSION = '0.0.5'
->	WEBSITE_URL = 'https://github.com/andforce/Android-DevUtils'
->	ISSUE_TRACKER_URL = 'https://github.com/andforce/Android-DevUtils/issues'
->	VSC_URL = 'https://github.com/andforce/Android-DevUtils'
-> }
-> apply from: 'https://raw.githubusercontent.com/andforce/release-android-lib-to-jcenter/master/bintray.gradle'
-
+`
+ext {
+	PUBLISH_GROUP_ID = 'org.zarrboogs.devutils'
+	LIB_NAME = 'android-devutils'
+	PUBLISH_VERSION = '0.0.5'
+	WEBSITE_URL = 'https://github.com/andforce/Android-DevUtils'
+	ISSUE_TRACKER_URL = 'https://github.com/andforce/Android-DevUtils/issues'
+	VSC_URL = 'https://github.com/andforce/Android-DevUtils'
+}
+apply from: 'https://raw.githubusercontent.com/andforce/release-android-lib-to-jcenter/master/bintray.gradle'
+`
 ## 感谢:
 http://theartofdev.com/2015/02/19/publish-android-library-to-bintray-jcenter-aar-vs-jar-and-optional-dependency/
