@@ -77,9 +77,9 @@ artifacts {
 }
 
 // --------------------
-def siteUrl = 'https://github.com/saymagic/AndroidUtils'      // 项目的主页
-def gitUrl = 'https://github.com/saymagic/AndroidUtils.git'   // Git仓库的url
-group = "cn.saymagic" // Maven Group ID for the artifact，一般填你唯一的包名
+def siteUrl = project.WEBSITE_URL
+def gitUrl = project.VSC_URL
+def libName = project.LIB_NAME 
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
@@ -89,7 +89,7 @@ bintray {
     configurations = ['archives']
     pkg {
         repo = "maven"  //发布到Bintray的那个仓库里，默认账户有四个库，我们这里上传到maven库
-        name = "android-devutils"  //发布到Bintray上的项目名字
+        name = libName  //发布到Bintray上的项目名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
