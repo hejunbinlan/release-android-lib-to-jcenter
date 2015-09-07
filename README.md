@@ -37,6 +37,9 @@ apply from: 'https://raw.githubusercontent.com/andforce/release-android-lib-to-j
 gradle build
 gradle bintrayUpload
 ```
+### 完整使用例子
+https://github.com/andforce/Android-DevUtils
+
 
 ## 感谢:
 http://theartofdev.com/2015/02/19/publish-android-library-to-bintray-jcenter-aar-vs-jar-and-optional-dependency/
