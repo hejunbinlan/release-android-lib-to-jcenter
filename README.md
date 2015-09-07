@@ -7,10 +7,16 @@
 
 ## 如何使用
 + 创建 Android Library Project (注意 gradle 的版本不太高，否则可能出错，建议2.2.1)
++ 在 `local.properties` 最后添加：
+``` script
+bintray.apikey=你的API Key
+bintray.user=你的用户名
+```
 + 修改`根目录` build.gradle ,在 dependencies 中添加两句：
-> classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
-> classpath 'com.github.dcendents:android-maven-plugin:1.2'
-
+``` script
+classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
+classpath 'com.github.dcendents:android-maven-plugin:1.2'
+```
 + 修改Module的build.gradle ，在最后添加：
 ``` script
 ext {
@@ -24,6 +30,12 @@ ext {
 
 // 下面这行请勿修改
 apply from: 'https://raw.githubusercontent.com/andforce/release-android-lib-to-jcenter/master/bintray.gradle'
+```
+
+### 编译发布
+``` script
+gradle build
+gradle bintrayUpload
 ```
 
 ## 感谢:
