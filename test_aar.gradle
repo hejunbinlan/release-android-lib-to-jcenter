@@ -81,6 +81,7 @@ def siteUrl = project.WEBSITE_URL
 def gitUrl = project.VSC_URL
 def libName = project.LIB_NAME 
 
+version = "1.0.0"
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 bintray {
@@ -92,7 +93,6 @@ bintray {
         name = libName  //发布到Bintray上的项目名字
         websiteUrl = siteUrl
         vcsUrl = gitUrl
-        version = version
         licenses = ["Apache-2.0"]
         publish = true
     }
