@@ -6,7 +6,7 @@
 + 在 `Edit Your Profile` -> `API Key` 中获取Key.
 
 ## 如何使用
-+ 创建 `Android Library Project` (注意 `gradle` 的版本不太高，否则可能出错，建议2.2.1)
++ 创建 `Android Library Project` (注意 `gradle` 的版本不要太高，否则可能出错，建议2.2.1)
 + 在 `local.properties` 最后添加：
 ``` script
 bintray.apikey=你的API Key

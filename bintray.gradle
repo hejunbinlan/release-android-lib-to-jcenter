@@ -81,7 +81,9 @@ artifacts {
 def siteUrl = project.WEBSITE_URL
 def gitUrl = project.VSC_URL
 def libName = project.LIB_NAME
+
 version = lib_version
+group = project.PUBLISH_GROUP_ID
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
