@@ -21,8 +21,10 @@ classpath 'com.github.dcendents:android-maven-plugin:1.2'
 ``` script
 ext {
 	PUBLISH_GROUP_ID = '你的groupId'	// 填写groupId， 一般是包名，比如：com.android.support
-	LIB_NAME = '你的lib名称'	// lib名称，比如：appcompat-v7
-	PUBLISH_VERSION = '版本好'	// 版本号，比如：22.2.1
+	PUBLISH_ARTIFACT_ID = '你的aritfactId'	// aritfactId，比如：appcompat-v7
+	PUBLISH_VERSION = '版本号'	// 版本号，比如：22.2.1
+
+	LIB_NAME = '你的lib名称'	// lib名称，比如：My_Lib
 	WEBSITE_URL = '库的网站链接'	// 可以填写github上的库地址.
 	ISSUE_TRACKER_URL = '库的issue链接'	// 可以填写github库的issue地址.
 	VSC_URL = '库的版本控制地址'	// 可以填写github上库的地址.

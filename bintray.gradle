@@ -5,7 +5,7 @@ apply plugin: 'com.jfrog.bintray'
 
 
 def groupId = project.PUBLISH_GROUP_ID
-def artifactId = project.LIB_NAME
+def artifactId = project.PUBLISH_ARTIFACT_ID
 def lib_version = project.PUBLISH_VERSION
 
 
@@ -82,8 +82,9 @@ def siteUrl = project.WEBSITE_URL
 def gitUrl = project.VSC_URL
 def libName = project.LIB_NAME
 
-version = lib_version
 group = project.PUBLISH_GROUP_ID
+artifact = project.PUBLISH_ARTIFACT_ID
+version = lib_version
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
