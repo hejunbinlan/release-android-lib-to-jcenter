@@ -83,7 +83,6 @@ def gitUrl = project.VSC_URL
 def libName = project.LIB_NAME
 
 group = project.PUBLISH_GROUP_ID
-artifact = project.PUBLISH_ARTIFACT_ID
 version = lib_version
 
 Properties properties = new Properties()
