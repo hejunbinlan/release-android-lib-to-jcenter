@@ -6,7 +6,7 @@
 + 在 `Edit Your Profile` -> `API Key` 中获取Key.
 
 ## 如何使用
-+ 创建 `Android Library Project` (注意 `gradle` 的版本不要太高，否则可能出错，建议2.2.1)
++ 创建 `Android Library Project` (注意 `gradle` 的版本需要2.4+，否则会出错)
 + 在 `local.properties` 最后添加：
 ``` script
 bintray.apikey=你的API Key
@@ -14,8 +14,8 @@ bintray.user=你的用户名
 ```
 + 修改 `根目录`build.gradle ,在 dependencies 中添加两句：
 ``` script
-classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
-classpath 'com.github.dcendents:android-maven-plugin:1.2'
+classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.3.1'
+classpath 'com.github.dcendents:android-maven-plugin:1.3'
 ```
 + 修改Module的build.gradle ，在最后添加：
 ``` script
@@ -47,4 +47,6 @@ https://github.com/andforce/Android-DevUtils
 
 
 ## 感谢:
+https://github.com/dcendents/android-maven-gradle-plugin
+https://github.com/bintray/gradle-bintray-plugin
 http://theartofdev.com/2015/02/19/publish-android-library-to-bintray-jcenter-aar-vs-jar-and-optional-dependency/
